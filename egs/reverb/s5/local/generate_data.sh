@@ -32,8 +32,8 @@ dir=${PWD}/data/local/reverb_tools
 mkdir -p ${dir}
 
 # Download tools
-URL1="http://reverb2014.dereverberation.com/tools/reverb_tools_for_Generate_mcTrainData.tgz"
-URL2="http://reverb2014.dereverberation.com/tools/REVERB_TOOLS_FOR_ASR_ver2.0.tgz"
+URL1="https://reverb2014.audiolabs-erlangen.de/tools/reverb_tools_for_Generate_mcTrainData.tgz"
+URL2="https://reverb2014.audiolabs-erlangen.de/tools/REVERB_TOOLS_FOR_ASR_ver2.0.tgz"
 for f in $URL1 $URL2; do
     x=`basename $f`
     if [ ! -e $dir/$x ]; then
@@ -41,7 +41,7 @@ for f in $URL1 $URL2; do
 	tar zxvf $dir/$x -C $dir || exit 1;
     fi
 done
-URL3="http://reverb2014.dereverberation.com/tools/taskFiles_et.tgz"
+URL3="https://reverb2014.audiolabs-erlangen.de/tools/taskFiles_et.tgz"
 x=`basename $URL3`
 if [ ! -e $dir/$x ]; then
     wget $URL3 -O $dir/$x || exit 1;

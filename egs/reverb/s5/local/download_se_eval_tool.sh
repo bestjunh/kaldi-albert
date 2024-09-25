@@ -5,7 +5,7 @@
 # please make sure that you or your institution have the license to report PESQ
 # Apache 2.0
 
-wget 'https://www.itu.int/rec/dologin_pub.asp?lang=e&id=T-REC-P.862-200102-I!!SOFT-ZST-E&type=items' -O PESQ.zip
+wget 'https://www.itu.int/rec/dologin_pub.asp?lang=e&id=T-REC-P.862-200102-W!!SOFT-ZST-E&type=items' -O PESQ.zip
 unzip PESQ.zip -d local/PESQ_sources
 rm PESQ.zip
 cd local/PESQ_sources/P862/Software/source
@@ -13,7 +13,7 @@ gcc  *.c -lm -o PESQ
 cd ../../../../../
 mv local/PESQ_sources/P862/Software/source/PESQ local/
 
-wget 'https://reverb2014.dereverberation.com/tools/REVERB-SPEENHA.Release04Oct.zip' -O REVERB_scores.zip
+wget 'https://reverb2014.audiolabs-erlangen.de/tools/REVERB-SPEENHA.Release04Oct.zip' -O REVERB_scores.zip
 unzip REVERB_scores.zip -d local/REVERB_scores_source
 rm REVERB_scores.zip
 

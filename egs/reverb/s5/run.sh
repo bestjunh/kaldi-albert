@@ -48,17 +48,21 @@ enable_pesq=false
 set -euxo pipefail
 
 # please make sure to set the paths of the REVERB and WSJ0 data
-if [[ $(hostname -f) == *.clsp.jhu.edu ]] ; then
-  reverb=/export/corpora5/REVERB_2014/REVERB
-  export wsjcam0=/export/corpora3/LDC/LDC95S24/wsjcam0
-  # set LDC WSJ0 directory to obtain LMs
-  # REVERB data directory only provides bi-gram (bcb05cnp), but this recipe also uses 3-gram (tcb05cnp.z)
-  export wsj0=/export/corpora5/LDC/LDC93S6A/11-13.1 #LDC93S6A or LDC93S6B
-  # It is assumed that there will be a 'wsj0' subdirectory
-  # within the top-level corpus directory
-else
-  echo "Set the data directory locations." && exit 1;
-fi
+# if [[ $(hostname -f) == *.clsp.jhu.edu ]] ; then
+#   reverb=/export/corpora5/REVERB_2014/REVERB
+#   export wsjcam0=/export/corpora3/LDC/LDC95S24/wsjcam0
+#   # set LDC WSJ0 directory to obtain LMs
+#   # REVERB data directory only provides bi-gram (bcb05cnp), but this recipe also uses 3-gram (tcb05cnp.z)
+#   export wsj0=/export/corpora5/LDC/LDC93S6A/11-13.1 #LDC93S6A or LDC93S6B
+#   # It is assumed that there will be a 'wsj0' subdirectory
+#   # within the top-level corpus directory
+# else
+#   echo "Set the data directory locations." && exit 1;
+# fi
+
+reverb=/home/nas/user/byungjoon/DB/REVERB
+export wsjcam0=/home/nas/user/byungjoon/DB/REVERB/wsjcam0
+export wsj0=/home/nas/user/byungjoon/DB/REVERB/11-13.1 #LDC93S6A or LDC93S6B
 
 #training set and test set
 train_set=tr_simu_8ch
@@ -68,9 +72,9 @@ test_sets="dt_real_8ch_beamformit dt_simu_8ch_beamformit et_real_8ch_beamformit 
 lm="tg_5k"
 
 # number of jobs for feature extraction and model training
-nj=92
+nj=18
 # number of jobs for decoding
-decode_nj=10
+decode_nj=6
 
 wavdir=${PWD}/wav
 pesqdir=${PWD}/local

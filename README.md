@@ -16,6 +16,49 @@ let us know if there are specific aspects of the project that you feel could be
 improved, that you find confusing, etc., and which missing features you most
 wish it had.
 
+시작하기 전...
+--------------------------
+**conda python 3.8**
+
+용량이 90G정도 되기 때문에,  SSD가 큰 서버에 설치할 것을 권장한다.
+
+git clone 후 README에 따라 진행
+
+tool, src의 install을 따라갈 때 유의.
+
+src에서 cuda를 사용하는 경우, cuda에서 가능한 gcc, g++ 버전을 확인 → tool에서 g++옵션 추가해서 make하기
+
+위에 `src/` 에서 install 작업에서 아래로 동작하기
+
+```bash
+./configure --use-cuda
+```
+
+
+설치
+
+```bash
+sudo apt-get install tcsh
+sudo apt-get install subversion
+```
+
+`tools/` 미리 설치하기.
+
+```bash
+./extras/install_miniconda.sh
+./extras/install_wpe.sh
+./extras/install_beamformit.sh
+```
+
+MATLAB 기본경로 설정해주기
+
+```bash
+nano ~/.bashrc
+export PATH=$PATH:/usr/local/MATLAB/R20XXx/bin
+source ~/.bashrc
+```
+
+
 Kaldi information channels
 --------------------------
 
