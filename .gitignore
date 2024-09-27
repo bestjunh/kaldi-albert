@@ -94,3 +94,8 @@ venv/
 # 
 egs/yesno/s5/waves_yesno/*
 egs/yesno/s5/waves_yesno.tar.gz
+
+#
+egs/reverb/s5/local/PESQ_sources/*
+egs/reverb/s5/local/REVERB_scores_source/*
+.gitignore
