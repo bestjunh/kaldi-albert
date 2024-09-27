@@ -6,7 +6,7 @@ set -euo pipefail
 # First the options that are passed through to run_ivector_common.sh
 # (some of which are also used in this script directly).
 stage=0
-nj=96
+nj=32
 train_set=tr_simu_8ch
 test_sets="dt_real_1ch dt_simu_1ch et_real_1ch et_simu_1ch"
 gmm=tri3
@@ -116,9 +116,9 @@ if [ $stage -le 12 ]; then
   # speed-perturbed data (local/nnet3/run_ivector_common.sh made them), so use
   # those.  The num-leaves is always somewhat less than the num-leaves from
   # the GMM baseline.
-   if [ -f $tree_dir/final.mdl ]; then
-     echo "$0: $tree_dir/final.mdl already exists, refusing to overwrite it."
-     exit 1;
+  if [ -f $tree_dir/final.mdl ]; then
+    echo "$0: $tree_dir/final.mdl already exists, refusing to overwrite it. Terminate run_tddn.sh"
+    exit 1;
   fi
   steps/nnet3/chain/build_tree.sh \
     --frame-subsampling-factor 3 \
@@ -211,7 +211,7 @@ if [ $stage -le 14 ]; then
     --egs.dir="$common_egs_dir" \
     --egs.opts="--frames-overlap-per-eg 0" \
     --cleanup.remove-egs=$remove_egs \
-    --use-gpu=true \
+    --use-gpu=wait \
     --reporting.email="$reporting_email" \
     --feat-dir=$train_data_dir \
     --tree-dir=$tree_dir \
