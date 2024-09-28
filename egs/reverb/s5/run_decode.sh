@@ -35,7 +35,7 @@ fi
 . ./cmd.sh
 . ./path.sh
 
-stage=14
+stage=0
 
 
 . utils/parse_options.sh
@@ -62,8 +62,14 @@ export wsj0=/home/nas/user/byungjoon/DB/REVERB/11-13.1 #LDC93S6A or LDC93S6B
 
 #training set and test set
 train_set=tr_simu_8ch
-test_set=Noisy
-test_path=/home/data/albert/outputReverb2MIX/Noisy
+
+# test_path=/home/data/albert/outputReverb2MIX/Noisy
+# test_set=Noisy
+
+test_path=/home/data/albert/outputReverb2MIX/WPEOverIVA_v0.0.0/lambda_scale_0.1_lambda_unit_0_lambda_null_0
+test_set=WO
+
+
 test_sets="et_real_8ch_${test_set} et_simu_8ch_${test_set}"
 
 # The language models with which to decode (tg_5k or bg_5k)
