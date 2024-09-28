@@ -63,12 +63,17 @@ export wsj0=/home/nas/user/byungjoon/DB/REVERB/11-13.1 #LDC93S6A or LDC93S6B
 #training set and test set
 train_set=tr_simu_8ch
 
-test_path=/home/dev60-data-mount/albert/outputReverb2MIX/Noisy
-test_set=Noisy
+# test_path=/home/dev60-data-mount/albert/outputReverb2MIX/Noisy
+# test_set=Noisy
 
-# test_path=/home/dev60-data-mount/albert/outputReverb2MIX/WPEOverIVA_v0.0.0/lambda_scale_0.1_lambda_unit_0_lambda_null_0
-# test_set=WO
+optName=lambda_scale_1_lambda_unit_0_lambda_null_0_D_3_L_4
+test_path=/home/dev60-data-mount/albert/outputReverb2MIX/OfflineWPEOverIVA_v0.0.0/$optName
+test_set=OWO000_$optName
 
+# test_path=/home/dev60-data-mount/albert/outputReverb2MIX/CDRWPEOverIVA_v0.0.1/lambda_scale_1_lambda_unit_0_lambda_null_0_D_3_L_4
+# test_set=CWO001_lambda_scale_1_lambda_unit_0_lambda_null_0_D_3_L_4
+
+# 0 to run decode, 14 to get results
 stage=0
 
 test_sets="et_real_8ch_${test_set}"
@@ -160,6 +165,7 @@ if [ $stage -le 13 ]; then
   --lm-suffix _test_$lm
 fi
 
+echo $stage
 if [ $stage -le 14 ]; then
   for dset in ${test_sets}; do    
     cat exp/chain_tr_simu_8ch/tdnn1a_sp/decode_test_tg_5k_$dset/scoring_kaldi/best_wer_*
