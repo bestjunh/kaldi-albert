@@ -38,7 +38,7 @@ fi
 stage=0
 nch_se=8
 # flag for turing on computation of dereverberation measures
-compute_se=true
+compute_se=false
 # please make sure that you or your institution have the license to report PESQ before turning on the below flag
 enable_pesq=false
 
@@ -76,8 +76,17 @@ nj=18
 # number of jobs for decoding
 decode_nj=6
 
-wavdir=${PWD}/wav
-pesqdir=${PWD}/local
+compute_wpe=false
+if $compute_wpe; then
+ wavdir=${PWD}/wav
+ pesqdir=${PWD}/local 
+else
+  # You can skip stage 2 if wpe and beamformit output are already generated.
+  # You can copy from IIP nas
+  wavdir=/home/hdd1/albert/kaldi_reverb_wav
+  pesqdir=/home/hdd1/albert/kaldi_reverb_local
+fi
+
 if [ ${stage} -le 1 ]; then
   # data preparation
   echo "stage 0: Data preparation"
@@ -86,7 +95,7 @@ if [ ${stage} -le 1 ]; then
   local/prepare_real_data.sh --wavdir ${wavdir} ${reverb}
 fi
 
-if [ $stage -le 2 ]; then
+if [ $stage -le 2 ] && $compute_wpe; then
   local/run_wpe.sh --cmd "$train_cmd"
   local/run_beamform.sh --cmd "$train_cmd" ${wavdir}/WPE/
 fi
