@@ -66,8 +66,8 @@ train_set=tr_simu_8ch
 # test_path=/home/dev60-data-mount/albert/outputReverb2MIX/Noisy
 # test_set=Noisy
 
-optName1=OfflineWPEOverIVA_v0.0.1
-optName2=lambda_scale_1_lambda_unit_0_lambda_null_0_D_2_L_0_delta_1e-06
+optName1=$1
+optName2=$2
 test_path=/home/dev60-data-mount/albert/outputReverb2MIX/$optName1/$optName2
 test_set=$optName1'_'$optName2
 
