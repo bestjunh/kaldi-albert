@@ -8,7 +8,11 @@ for D in 2; do
             optName2='lambda_scale_1_lambda_unit_0_lambda_null_0_D_'$D'_L_'$L'_delta_'$delta
             test_set=$optName1'_'$optName2
             test_sets="et_real_8ch_${test_set}"
-            cat exp/chain_tr_simu_8ch/tdnn1a_sp/decode_test_tg_5k_$test_sets/scoring_kaldi/best_wer_*
+            # cat exp/chain_tr_simu_8ch/tdnn1a_sp/decode_test_tg_5k_$test_sets/scoring_kaldi/best_wer_*
+            echo $test_set
+            cat exp/chain_tr_simu_8ch/tdnn1a_sp/decode_test_tg_5k_$test_sets/scoring_kaldi/best_wer_* | awk '/%WER/ {print $2}'
         done
     done
 done
+
+
