@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
+optName1=OfflineWPEOverIVA_v3.0.3
+#optName1=WPEOverIVA_v0.1.4
+# optName1=CDRWPEOverIVA_v2.0.0
 
-optName1=WPEOverIVA_v0.1.0
-
-
-for lambda_scale in 1;do
-    for lambda_unit in 0 1 10; do
-        for lambda_null in 10; do
+for lambda_scale in 0.0001;do
+    for lambda_unit in 0; do
+        for lambda_null in 0; do
             for D in 2; do
                 for L in 8; do
                     for delta in 1e-06; do
@@ -20,7 +20,7 @@ for lambda_scale in 1;do
                             #echo -e "$far_wer\t$near_wer"
                             
                             echo -e "$far_wer"
-                            # echo -e "$near_wer"
+                            echo -e "$near_wer"
                         done
                     done
                 done
