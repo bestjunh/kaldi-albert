@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 
-for D in 1 2; do
-    for L in 0 2 5 8; do
-        for delta in 0.001 1e-06 1e-08; do
-            echo "delta: $delta"
-            ./run_decode.sh OfflineWPEOverIVA_v0.0.1 'lambda_scale_1_lambda_unit_0_lambda_null_0_D_'$D'_L_'$L'_delta_'$delta
+for lambda_scale in 1; do
+    for lambda_unit in 0; do
+        for lambda_null in 10; do
+            for D in 2; do
+                for L in 8; do
+                    for delta in 1e-06; do
+                        for nIter in 1; do
+                            echo "delta: $delta"
+                            ./run_decode.sh WPEOverIVA_v0.1.0 'lambda_scale_'$lambda_scale'_lambda_unit_'$lambda_unit'_lambda_null_'$lambda_null'_D_'$D'_L_'$L'_delta_'$delta'_nIter_'$nIter
+                        done
+                    done
+                done
+            done
         done
     done
 done
+
