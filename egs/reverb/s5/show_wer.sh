@@ -33,8 +33,8 @@ done
 optName1=OfflineWPEOverIVA_v3.1.1
 for D in 2 3;do
     for L in 8 12 20;do
-        for deltaWPE in 1e-3 1e-4 1e-5;do
-            for deltaIVA in 1e-3 1e-5 1e-10;do
+        for deltaWPE in 0.001 0.0001 1e-05;do
+            for deltaIVA in 0.001 1e-05 1e-10;do
                 optName2='D_'$D'_L_'$L'_deltaWPE_'$deltaWPE'_deltaIVA_'$deltaIVA
                 test_set=$optName1'_'$optName2
                 test_sets="et_real_8ch_${test_set}"

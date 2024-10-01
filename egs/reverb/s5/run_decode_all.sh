@@ -23,8 +23,8 @@
 AlgName=OfflineWPEOverIVA_v3.1.1
 for D in 2 3;do
     for L in 8 12 20;do
-        for deltaWPE in 1e-3 1e-4 1e-5;do
-            for deltaIVA in 1e-3 1e-5 1e-10;do
+        for deltaWPE in 0.001 0.0001 1e-05;do
+            for deltaIVA in 0.001 1e-05 1e-10;do
                 ./run_decode.sh $AlgName 'D_'$D'_L_'$L'_deltaWPE_'$deltaWPE'_deltaIVA_'$deltaIVA
             done
         done
