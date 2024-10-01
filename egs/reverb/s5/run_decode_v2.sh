@@ -69,8 +69,11 @@ train_set=tr_simu_8ch
 optName1=$1
 wavIter=$2
 optName2=$3
-test_path=/home/dev60-data-mount/albert/outputReverb2MIX/$optName1/'wavIter'$wavIter/$optName2
-test_set=$optName1'_'$wavIter'_'$optName2
+test_path=/home/dev60-data-mount/albert/outputReverb2MIX/$optName1/$optName2/wavIter$wavIter
+echo '================================================'
+echo $test_path
+echo '================================================'
+test_set=$optName1'_'$optName2'_'$wavIter
 
 # test_path=/home/dev60-data-mount/albert/outputReverb2MIX/CDRWPEOverIVA_v0.0.1/lambda_scale_1_lambda_unit_0_lambda_null_0_D_3_L_4
 # test_set=CWO001_lambda_scale_1_lambda_unit_0_lambda_null_0_D_3_L_4
